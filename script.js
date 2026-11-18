@@ -39,10 +39,13 @@ document.getElementById("quoteForm").addEventListener("submit", event => {
   event.preventDefault();
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
-  const firstName = form.elements.firstName.value.trim();
-  document.getElementById("formSuccess").textContent =
-    `Thanks, ${firstName}! This demo request is complete. No information was sent to Hot Shot.`;
-  form.reset();
+  const data = new FormData(form);
+  const subject = encodeURIComponent(`Quote request from ${data.get("firstName")} ${data.get("lastName")}`);
+  const body = encodeURIComponent(
+    `Name: ${data.get("firstName")} ${data.get("lastName")}\nEmail: ${data.get("email")}\nService: ${data.get("service")}\nTown: ${data.get("town")}\n\nProject details:\n${data.get("message") || "Not provided"}`
+  );
+  document.getElementById("formSuccess").textContent = "Your email app is opening with your request. Review it and press Send to contact Hot Shot.";
+  window.location.href = `mailto:hotshotpressurewashingsc@gmail.com?subject=${subject}&body=${body}`;
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
