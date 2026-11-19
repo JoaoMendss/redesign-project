@@ -27,15 +27,48 @@
   </header>
 
   <main>
-    <section class="hero" id="hero">
-      <div class="hero-image"></div>
-      <div class="hero-shade"></div>
-      <div class="hero-content reveal">
-        <div class="eyebrow"><span></span> CHARLESTON & MYRTLE BEACH</div>
-        <h1>A cleaner exterior.<br>A better first impression.</h1>
-        <p>Bring your home or business back to life with professional exterior cleaning from Hot Shot Pressure Washing.</p>
-        <div class="hero-actions"><a class="button button-orange" href="#quote">Request a free estimate <span>↗</span></a><a class="text-link" href="#services">Explore our services <span>↓</span></a></div>
-        <div class="hero-proof"><div class="proof-icon">✦</div><div><strong>Residential · Commercial · Industrial</strong><small>Exterior cleaning solutions for the Lowcountry</small></div></div>
+    <section class="hero" id="hero" aria-label="Hot Shot featured services">
+      <div class="hero-carousel" aria-roledescription="carousel" aria-label="Featured Hot Shot services">
+        <article class="hero-slide is-active" aria-hidden="false">
+          <div class="hero-image" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=90')"></div>
+          <div class="hero-shade"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><span></span> CHARLESTON & MYRTLE BEACH</div>
+            <h1>A cleaner exterior.<br>A better first impression.</h1>
+            <p>Bring your home or business back to life with professional exterior cleaning from Hot Shot Pressure Washing.</p>
+            <div class="hero-actions"><a class="button button-orange" href="#quote">Request a free estimate <span>↗</span></a><a class="text-link" href="#services">Explore our services <span>↓</span></a></div>
+            <div class="hero-proof"><div class="proof-icon">✦</div><div><strong>Residential · Commercial · Industrial</strong><small>Exterior cleaning solutions for the Lowcountry</small></div></div>
+          </div>
+        </article>
+        <article class="hero-slide" aria-hidden="true">
+          <div class="hero-image" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90')"></div>
+          <div class="hero-shade"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><span></span> DECKS, PATIOS & OUTDOOR SPACES</div>
+            <h1>Make room for<br><em>fresh-air living.</em></h1>
+            <p>Refresh the outdoor spaces where you relax, gather and make memories with a cleaning approach selected for the surface.</p>
+            <div class="hero-actions"><a class="button button-orange" href="#quote">Request a free estimate <span>↗</span></a><a class="text-link" href="#services">Explore our services <span>↓</span></a></div>
+            <div class="hero-proof"><div class="proof-icon">✦</div><div><strong>Thoughtful exterior cleaning</strong><small>For patios, decks and more</small></div></div>
+          </div>
+        </article>
+        <article class="hero-slide" aria-hidden="true">
+          <div class="hero-image" style="background-image:url('https://images.unsplash.com/photo-1590725121839-892b458a74fe?auto=format&fit=crop&w=2200&q=90')"></div>
+          <div class="hero-shade"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><span></span> RESIDENTIAL & COMMERCIAL</div>
+            <h1>A fresh look starts<br><em>at the surface.</em></h1>
+            <p>From concrete to business exteriors, give your property a cleaner, more welcoming look with Hot Shot.</p>
+            <div class="hero-actions"><a class="button button-orange" href="#quote">Request a free estimate <span>↗</span></a><a class="text-link" href="#services">Explore our services <span>↓</span></a></div>
+            <div class="hero-proof"><div class="proof-icon">✦</div><div><strong>Free estimates</strong><small>Tell us about your project</small></div></div>
+          </div>
+        </article>
+        <button class="hero-arrow hero-prev" type="button" aria-label="Previous slide">‹</button>
+        <button class="hero-arrow hero-next" type="button" aria-label="Next slide">›</button>
+        <div class="hero-pagination" aria-label="Choose a slide">
+          <button class="hero-dot is-active" type="button" aria-label="Show slide 1" aria-current="true"></button>
+          <button class="hero-dot" type="button" aria-label="Show slide 2"></button>
+          <button class="hero-dot" type="button" aria-label="Show slide 3"></button>
+        </div>
       </div>
       <div class="hero-side-label">CLEAN STARTS HERE — SC</div>
     </section>
@@ -93,7 +126,7 @@
     </section>
 
     <section class="quote-section section-pad" id="quote">
-      <div class="quote-copy reveal"><div class="eyebrow"><span></span> YOUR PROPERTY, REFRESHED</div><h2>Let's make it<br><em>look like new.</em></h2><p>Tell us a little about your project. Use the form below to prepare an estimate request by email.</p><div class="contact-detail"><span>CALL HOT SHOT</span><a href="tel:18437438032">843.743.8032</a></div><div class="contact-detail"><span>EMAIL</span><a href="mailto:hotshotpressurewashingsc@gmail.com">hotshotpressurewashingsc@gmail.com</a></div></div>
+      <div class="quote-copy reveal"><div class="eyebrow"><span></span> YOUR PROPERTY, REFRESHED</div><h2>Let's make it<br><em>look like new.</em></h2><p>Tell us a little about your project using the form below. Our team will be ready to review your request.</p><div class="contact-detail"><span>CALL HOT SHOT</span><a href="tel:18437438032">843.743.8032</a></div><div class="contact-detail"><span>EMAIL</span><a href="mailto:hotshotpressurewashingsc@gmail.com">hotshotpressurewashingsc@gmail.com</a></div></div>
       <form class="quote-form reveal" id="quoteForm">
         <div class="form-top"><span>REQUEST AN ESTIMATE</span><span>01 — 04</span></div>
         <div class="form-row"><label>First name<input name="firstName" type="text" placeholder="Your first name" required></label><label>Last name<input name="lastName" type="text" placeholder="Your last name" required></label></div>
@@ -101,7 +134,7 @@
         <div class="form-row"><label>Service needed<select name="service" required><option value="">Select a service</option><option>Residential washing</option><option>Commercial cleaning</option><option>Decks & patios</option><option>Driveways & concrete</option><option>Pool & poolside</option><option>Other / not sure</option></select></label><label>Your town<input name="town" type="text" placeholder="e.g. Charleston" required></label></div>
         <label>Tell us about your project<textarea name="message" rows="3" placeholder="What would you like cleaned?"></textarea></label>
         <button class="button button-orange submit-button" type="submit">Send quote request <span>↗</span></button>
-        <p class="form-disclaimer">Your email app will open so you can send your request directly to Hot Shot.</p>
+        <p class="form-disclaimer">Demo form — your information will not be sent or stored.</p>
         <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
       </form>
     </section>
@@ -110,7 +143,17 @@
   <footer class="footer">
     <div class="footer-main">
       <div class="footer-brand-column"><a class="brand footer-brand" href="#hero"><img class="brand-logo" src="assets/hot-shot-logo.png" alt="Hot Shot Softwash logo"><span class="brand-name">HOT SHOT<small>PRESSURE WASHING</small></span></a><p>Professional exterior cleaning serving Charleston and Myrtle Beach, South Carolina.</p>
-        <div class="social-links"><span>FOLLOW US</span><span class="social-name">Facebook</span><span class="social-name">Instagram</span></div>
+        <div class="social-links">
+          <span>FOLLOW US</span>
+          <span class="social-name social-brand" aria-label="Facebook">
+            <svg class="social-icon facebook-icon" viewBox="0 0 24 24" role="img" aria-label="Facebook logo"><path fill="currentColor" d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4Z"/></svg>
+            Facebook
+          </span>
+          <span class="social-name social-brand" aria-label="Google">
+            <svg class="social-icon google-icon" viewBox="0 0 48 48" role="img" aria-label="Google logo"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11c-.5 2.5-1.9 4.6-4 6v5h6.5c3.8-3.5 6.1-8.6 6.1-14.7Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.8l-6.5-5c-1.8 1.2-4.1 1.9-7 1.9-5.3 0-9.8-3.6-11.4-8.4H5.9v5.2C9.3 39.5 16.1 44 24 44Z"/><path fill="#FBBC05" d="M12.6 27.7a12 12 0 0 1 0-7.4v-5.2H5.9a20 20 0 0 0 0 17.8l6.7-5.2Z"/><path fill="#EA4335" d="M24 11.9c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 5.8 29.5 4 24 4 16.1 4 9.3 8.5 5.9 15.1l6.7 5.2c1.6-4.8 6.1-8.4 11.4-8.4Z"/></svg>
+            Google
+          </span>
+        </div>
         <div class="footer-contact"><a href="tel:18437438032">(843) 743-8032</a><a href="mailto:hotshotpressurewashingsc@gmail.com">hotshotpressurewashingsc@gmail.com</a></div>
       </div>
       <div class="footer-map-wrap"><div class="map-heading"><span>OUR LOCATION</span><p>1723 Jessy Elizabeth Rd, Johns Island, SC 29455</p></div><iframe title="Hot Shot location map" src="https://www.google.com/maps?q=1723%20Jessy%20Elizabeth%20Rd%2C%20Johns%20Island%2C%20SC%2029455&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>

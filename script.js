@@ -35,17 +35,67 @@ document.querySelectorAll(".faq-list details").forEach(detail => {
   });
 });
 
+// Hero carousel controls
+const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+const heroDots = Array.from(document.querySelectorAll(".hero-dot"));
+const previousSlide = document.querySelector(".hero-prev");
+const nextSlide = document.querySelector(".hero-next");
+let activeHeroSlide = 0;
+let heroTimer;
+
+function showHeroSlide(index) {
+  activeHeroSlide = (index + heroSlides.length) % heroSlides.length;
+  heroSlides.forEach((slide, i) => {
+    const active = i === activeHeroSlide;
+    slide.classList.toggle("is-active", active);
+    slide.setAttribute("aria-hidden", String(!active));
+  });
+  heroDots.forEach((dot, i) => {
+    const active = i === activeHeroSlide;
+    dot.classList.toggle("is-active", active);
+    if (active) dot.setAttribute("aria-current", "true");
+    else dot.removeAttribute("aria-current");
+  });
+}
+
+function restartHeroTimer() {
+  window.clearInterval(heroTimer);
+  heroTimer = window.setInterval(() => showHeroSlide(activeHeroSlide + 1), 6000);
+}
+
+previousSlide.addEventListener("click", () => {
+  showHeroSlide(activeHeroSlide - 1);
+  restartHeroTimer();
+});
+nextSlide.addEventListener("click", () => {
+  showHeroSlide(activeHeroSlide + 1);
+  restartHeroTimer();
+});
+heroDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    showHeroSlide(index);
+    restartHeroTimer();
+  });
+});
+restartHeroTimer();
+
+// Pause automatic rotation while visitors interact with the carousel.
+const heroCarousel = document.querySelector(".hero-carousel");
+heroCarousel.addEventListener("mouseenter", () => window.clearInterval(heroTimer));
+heroCarousel.addEventListener("mouseleave", restartHeroTimer);
+heroCarousel.addEventListener("focusin", () => window.clearInterval(heroTimer));
+heroCarousel.addEventListener("focusout", event => {
+  if (!heroCarousel.contains(event.relatedTarget)) restartHeroTimer();
+});
+
+// Demo quote form: show a fictional success confirmation without sending data.
 document.getElementById("quoteForm").addEventListener("submit", event => {
   event.preventDefault();
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
-  const data = new FormData(form);
-  const subject = encodeURIComponent(`Quote request from ${data.get("firstName")} ${data.get("lastName")}`);
-  const body = encodeURIComponent(
-    `Name: ${data.get("firstName")} ${data.get("lastName")}\nEmail: ${data.get("email")}\nService: ${data.get("service")}\nTown: ${data.get("town")}\n\nProject details:\n${data.get("message") || "Not provided"}`
-  );
-  document.getElementById("formSuccess").textContent = "Your email app is opening with your request. Review it and press Send to contact Hot Shot.";
-  window.location.href = `mailto:hotshotpressurewashingsc@gmail.com?subject=${subject}&body=${body}`;
+  const success = document.getElementById("formSuccess");
+  success.textContent = "Message sent successfully! (Demo only — no information was actually sent.)";
+  form.reset();
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
